@@ -7,11 +7,24 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
      I wrote both a closure and a protocol that could handle the drag event.
      Do we want to pick one? or keep both and let the developer choose?
  */
-    var onValueChangedHandler: ((Int) -> ())?
+    var onValueChangedHandler: ((Double) -> ())?
     weak var adjustableTextFieldDelegate: AdjustableTextFieldDelegate?
-    
-    private var currentValue = 0
-    private var dragDiff: CGFloat = 0.0
+
+    @IBInspectable var value: Double = 0 { // TODO: how do we get the default value to appear in the inspector in IB?
+        didSet {
+            if value > maxValue {
+                value = maxValue
+            }
+            if value < minValue {
+                value = minValue
+            }
+            stringValue = "\(value)"
+        }
+    }
+    @IBInspectable var maxValue: Double = 1
+    @IBInspectable var minValue: Double = 0
+    @IBInspectable var incrementValue: Double = 0.01
+    @IBInspectable var sensitivity: Double = 0.5
 
     private lazy var customCursor: NSCursor = {
         let image = NSImage(size: NSMakeSize(16, 16))
@@ -26,6 +39,9 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        // TODO: awake from nib is only called when using IB
+        // if it is instantiated programmatically we need to se isEditable = false in another way
+        // maybe override init?
         isEditable = false
     }
 
@@ -47,9 +63,8 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
             currentEditor()?.selectedRange = NSRange(location: range.length, length: 0)
         }
         window?.makeFirstResponder(superview)
-        dragDiff = 0
-        if let newValue = Int(stringValue) {
-            currentValue = newValue
+        if let newValue = Double(stringValue) {
+            value = newValue
         }
 
         // change mouse cursor image to custom image
@@ -66,21 +81,18 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
             return
         }
         customCursor.set()
-        dragDiff += event.deltaY
-        let newValue = currentValue - Int(dragDiff)
-        
-        stringValue = "\(newValue)"
-        
+        value -= Double(event.deltaY) * sensitivity
+
         //MARK: Closure style event handler
-        onValueChangedHandler?(newValue)
-        
+        onValueChangedHandler?(value)
+
         //MARK: Delegate style event handler
-        adjustableTextFieldDelegate?.onValueChanged(newValue)
+        adjustableTextFieldDelegate?.onValueChanged(value)
+
     }
-    
 
 }
 
 protocol AdjustableTextFieldDelegate: class {
-    func onValueChanged(_ newValue: Int)
+    func onValueChanged(_ newValue: Double)
 }

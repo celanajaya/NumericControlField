@@ -12,27 +12,29 @@ class ViewController: NSViewController, AdjustableTextFieldDelegate {
 
     @IBOutlet weak var valueLabel: NSTextField!
     @IBOutlet weak var adjustableTextField: AdjustableTextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //MARK: Closure style or Delegate style
+
+        // MARK: Closure style or Delegate style
         adjustableTextField.onValueChangedHandler = { [unowned self] newVal in
             self.valueLabel.stringValue = "\(newVal)"
         }
-        
+        adjustableTextField.value = 50
+        adjustableTextField.minValue = -100
+        adjustableTextField.maxValue = 100
+
         adjustableTextField.adjustableTextFieldDelegate = self
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-    
-    func onValueChanged(_ newValue: Int) {
+
+    func onValueChanged(_ newValue: Double) {
         valueLabel.stringValue = "\(newValue)"
     }
 
 }
-
