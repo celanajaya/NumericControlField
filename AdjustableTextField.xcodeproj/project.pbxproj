@@ -11,6 +11,7 @@
 		C16D876F1F28C2EE004AA596 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D876E1F28C2EE004AA596 /* ViewController.swift */; };
 		C16D87711F28C2EE004AA596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C16D87701F28C2EE004AA596 /* Assets.xcassets */; };
 		C16D87741F28C2EE004AA596 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C16D87721F28C2EE004AA596 /* Main.storyboard */; };
+		C16D877C1F28C31C004AA596 /* AdjustableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D877B1F28C31C004AA596 /* AdjustableTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		C16D87701F28C2EE004AA596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C16D87731F28C2EE004AA596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C16D87751F28C2EE004AA596 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C16D877B1F28C31C004AA596 /* AdjustableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustableTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				C16D876C1F28C2EE004AA596 /* AppDelegate.swift */,
 				C16D876E1F28C2EE004AA596 /* ViewController.swift */,
+				C16D877B1F28C31C004AA596 /* AdjustableTextField.swift */,
 				C16D87701F28C2EE004AA596 /* Assets.xcassets */,
 				C16D87721F28C2EE004AA596 /* Main.storyboard */,
 				C16D87751F28C2EE004AA596 /* Info.plist */,
@@ -135,6 +138,7 @@
 			files = (
 				C16D876F1F28C2EE004AA596 /* ViewController.swift in Sources */,
 				C16D876D1F28C2EE004AA596 /* AppDelegate.swift in Sources */,
+				C16D877C1F28C31C004AA596 /* AdjustableTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

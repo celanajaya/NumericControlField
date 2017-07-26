@@ -8,12 +8,20 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, AdjustableTextFieldDelegate {
 
+    @IBOutlet weak var valueLabel: NSTextField!
+    @IBOutlet weak var adjustableTextField: AdjustableTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //MARK: Closure style or Delegate style
+        adjustableTextField.onValueChangedHandler = { [unowned self] newVal in
+            self.valueLabel.stringValue = "\(newVal)"
+        }
+        
+        adjustableTextField.adjustableTextFieldDelegate = self
     }
 
     override var representedObject: Any? {
@@ -21,7 +29,10 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    func onValueChanged(_ newValue: Int) {
+        valueLabel.stringValue = "\(newValue)"
+    }
 
 }
 
