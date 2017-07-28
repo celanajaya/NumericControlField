@@ -9,22 +9,26 @@
 import Cocoa
 
 class ViewController: NSViewController, AdjustableTextFieldDelegate {
+    @IBOutlet weak var delegateValueLabel: NSTextField!
+    @IBOutlet weak var delegateAdjustableTextField: AdjustableTextField!
 
-    @IBOutlet weak var valueLabel: NSTextField!
-    @IBOutlet weak var adjustableTextField: AdjustableTextField!
-
+    @IBOutlet weak var closureAdjustableTextField: AdjustableTextField!
+    @IBOutlet weak var closureValueLabel: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: Closure style or Delegate style
-        adjustableTextField.onValueChangedHandler = { [unowned self] newVal in
-            self.valueLabel.stringValue = "\(newVal)"
+        closureAdjustableTextField.onValueChangedHandler = { [unowned self] newVal in
+            self.closureValueLabel.stringValue = "\(newVal)"
         }
-        adjustableTextField.value = 50
-        adjustableTextField.minValue = -100
-        adjustableTextField.maxValue = 100
+        closureAdjustableTextField.value = 50
+        closureAdjustableTextField.minValue = -100
+        closureAdjustableTextField.maxValue = 100
 
-        adjustableTextField.adjustableTextFieldDelegate = self
+        delegateAdjustableTextField.adjustableTextFieldDelegate = self
+        delegateAdjustableTextField.value = 50
+        delegateAdjustableTextField.minValue = -100
+        delegateAdjustableTextField.maxValue = 100
     }
 
     override var representedObject: Any? {
@@ -34,7 +38,7 @@ class ViewController: NSViewController, AdjustableTextFieldDelegate {
     }
 
     func onValueChanged(_ newValue: Double) {
-        valueLabel.stringValue = "\(newValue)"
+        delegateValueLabel.stringValue = "\(newValue)"
     }
 
 }
