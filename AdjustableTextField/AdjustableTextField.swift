@@ -3,7 +3,7 @@ import Cocoa
 
 class AdjustableTextField: NSTextField, NSTextViewDelegate {
 
-    var onValueChangedHandler: ((Double) -> ())?
+    var valueChangedHandler: ((Double) -> ())?
     weak var adjustableTextFieldDelegate: AdjustableTextFieldDelegate?
 
     @IBInspectable var value: Double = 0 { // TODO: how do we get the default value to appear in the inspector in IB?
@@ -85,7 +85,7 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         value -= Double(event.deltaY) * sensitivity
 
         //MARK: Closure style event handler
-        onValueChangedHandler?(value)
+        valueChangedHandler?(value)
 
         //MARK: Delegate style event handler
         adjustableTextFieldDelegate?.onValueChanged(value)

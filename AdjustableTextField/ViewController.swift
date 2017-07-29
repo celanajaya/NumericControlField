@@ -19,7 +19,7 @@ class ViewController: NSViewController, AdjustableTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        closureAdjustableTextField.onValueChangedHandler = { [unowned self] newVal in
+        closureAdjustableTextField.valueChangedHandler = { [unowned self] newVal in
             self.closureValueLabel.stringValue = "\(newVal)"
         }
         closureAdjustableTextField.value = 50
