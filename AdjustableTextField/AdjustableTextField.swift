@@ -3,10 +3,6 @@ import Cocoa
 
 class AdjustableTextField: NSTextField, NSTextViewDelegate {
 
-/* -Event Handlers -
-     I wrote both a closure and a protocol that could handle the drag event.
-     Do we want to pick one? or keep both and let the developer choose?
- */
     var onValueChangedHandler: ((Double) -> ())?
     weak var adjustableTextFieldDelegate: AdjustableTextFieldDelegate?
 
