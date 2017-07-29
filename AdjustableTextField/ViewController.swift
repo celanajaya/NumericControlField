@@ -38,7 +38,7 @@ class ViewController: NSViewController, AdjustableTextFieldDelegate {
         }
     }
 
-    func onValueChanged(_ newValue: Double) {
+    func adjustableTextField(_ adjustableTextField: AdjustableTextField, didChangeValue newValue: Double) {
         delegateValueLabel.stringValue = "\(newValue)"
     }
 
