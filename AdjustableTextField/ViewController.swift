@@ -9,12 +9,13 @@
 import Cocoa
 
 class ViewController: NSViewController, AdjustableTextFieldDelegate {
+
     @IBOutlet weak var delegateValueLabel: NSTextField!
     @IBOutlet weak var delegateAdjustableTextField: AdjustableTextField!
 
     @IBOutlet weak var closureAdjustableTextField: AdjustableTextField!
     @IBOutlet weak var closureValueLabel: NSTextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
