@@ -39,12 +39,14 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         image.unlockFocus()
         return NSCursor(image: image, hotSpot: NSZeroPoint)
     }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // TODO: awake from nib is only called when using IB
-        // if it is instantiated programmatically we need to se isEditable = false in another way
-        // maybe override init?
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        isEditable = false
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         isEditable = false
     }
 
