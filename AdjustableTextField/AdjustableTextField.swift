@@ -42,6 +42,7 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         isEditable = false
     }
 
+    //MARK: Mouse Events
     override func mouseDown(with event: NSEvent) {
         if !isEnabled {
             return
@@ -85,9 +86,16 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
 
         //MARK: Delegate style event handler
         adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
-
     }
-
+    
+    //MARK: NSTextViewDelegate Methods
+    func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        if let string = replacementString {
+            return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+        }
+        return false
+    }
 }
 
 protocol AdjustableTextFieldDelegate: class {
