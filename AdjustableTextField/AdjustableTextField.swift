@@ -88,12 +88,12 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         onValueChangedHandler?(value)
 
         //MARK: Delegate style event handler
-        adjustableTextFieldDelegate?.onValueChanged(value)
+        adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
 
     }
 
 }
 
 protocol AdjustableTextFieldDelegate: class {
-    func onValueChanged(_ newValue: Double)
+    func adjustableTextField(_ adjustableTextField: AdjustableTextField, didChangeValue newValue: Double)
 }
