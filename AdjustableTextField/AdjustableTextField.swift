@@ -15,6 +15,12 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
                 value = minValue
             }
             stringValue = "\(value)"
+            
+            //MARK: Closure style event handler
+            valueChangedHandler?(value)
+            
+            //MARK: Delegate style event handler
+            adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
         }
     }
     @IBInspectable var maxValue: Double = 1
@@ -40,6 +46,12 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         isEditable = false
+    }
+    
+    override func textDidEndEditing(_ notification: Notification) {
+        if let dValue = Double(stringValue) {
+            value = dValue
+        }
     }
 
     override func mouseDown(with event: NSEvent) {
@@ -79,15 +91,7 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         }
         customCursor.set()
         value -= Double(event.deltaY) * responsiveness
-
-        //MARK: Closure style event handler
-        valueChangedHandler?(value)
-
-        //MARK: Delegate style event handler
-        adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
-
     }
-
 }
 
 protocol AdjustableTextFieldDelegate: class {
