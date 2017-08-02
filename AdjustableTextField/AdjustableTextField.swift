@@ -19,11 +19,7 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
     }
     @IBInspectable var maxValue: Double = 1
     @IBInspectable var minValue: Double = 0
-
-    //TODO: I missed this in the PR. What is this property for? Doesn't sensitivity handle the raate at which value increments?
-    @IBInspectable var incrementValue: Double = 0.01
-
-    @IBInspectable var sensitivity: Double = 0.5
+    @IBInspectable var responsiveness: Double = 0.5
 
     private lazy var customCursor: NSCursor = {
         let image = NSImage(size: NSMakeSize(16, 16))
@@ -82,18 +78,18 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
             return
         }
         customCursor.set()
-        value -= Double(event.deltaY) * sensitivity
+        value -= Double(event.deltaY) * responsiveness
 
         //MARK: Closure style event handler
         valueChangedHandler?(value)
 
         //MARK: Delegate style event handler
-        adjustableTextFieldDelegate?.onValueChanged(value)
+        adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
 
     }
 
 }
 
 protocol AdjustableTextFieldDelegate: class {
-    func onValueChanged(_ newValue: Double)
+    func adjustableTextField(_ adjustableTextField: AdjustableTextField, didChangeValue newValue: Double)
 }
