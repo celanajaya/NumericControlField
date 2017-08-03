@@ -92,12 +92,6 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         }
         customCursor.set()
         value -= Double(event.deltaY) * responsiveness
-
-        // MARK: Closure style event handler
-        valueChangedHandler?(value)
-
-        // MARK: Delegate style event handler
-        adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
     }
 
     // MARK: NSTextViewDelegate Methods
