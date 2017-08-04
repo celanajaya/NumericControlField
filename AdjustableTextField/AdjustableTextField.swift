@@ -42,6 +42,12 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         isEditable = false
     }
 
+    override func textDidEndEditing(_ notification: Notification) {
+        if let dValue = Double(stringValue) {
+            value = dValue
+        }
+    }
+
     // MARK: Mouse Events
     override func mouseDown(with event: NSEvent) {
         if !isEnabled {
@@ -63,6 +69,7 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         window?.makeFirstResponder(superview)
         if let newValue = Double(stringValue) {
             value = newValue
+            userDidChangeValue()
         }
 
         // change mouse cursor image to custom image
@@ -80,22 +87,24 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         }
         customCursor.set()
         value -= Double(event.deltaY) * responsiveness
-
-        // MARK: Closure style event handler
-        valueChangedHandler?(value)
-
-        // MARK: Delegate style event handler
-        adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
+        userDidChangeValue()
     }
 
     // MARK: NSTextViewDelegate Methods
-
     func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789.").inverted
         if let string = replacementString {
             return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
         }
         return false
+    }
+
+    private func userDidChangeValue() {
+        // MARK: Closure style event handler
+        valueChangedHandler?(value)
+
+        // MARK: Delegate style event handler
+        adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
     }
 
 }
