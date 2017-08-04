@@ -98,11 +98,11 @@ class AdjustableTextField: NSTextField, NSTextViewDelegate {
         }
         return false
     }
-    
-    func userDidChangeValue() {
+
+    private func userDidChangeValue() {
         // MARK: Closure style event handler
         valueChangedHandler?(value)
-        
+
         // MARK: Delegate style event handler
         adjustableTextFieldDelegate?.adjustableTextField(self, didChangeValue: value)
     }
