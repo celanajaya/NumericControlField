@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -13,11 +13,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="AdjustableTextField" id="1Xt-HY-uBw">
+                            <menuItem title="NumericControlField" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="AdjustableTextField" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="NumericControlField" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About AdjustableTextField" id="5kV-Vb-QxS">
+                                        <menuItem title="About NumericControlField" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -31,7 +31,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide AdjustableTextField" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide NumericControlField" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -49,7 +49,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit AdjustableTextField" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit NumericControlField" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -643,7 +643,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="AdjustableTextField Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="NumericControlField Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -657,7 +657,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="AdjustableTextField" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NumericControlField" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -671,6 +671,9 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="Prt-qg-lCL"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -683,7 +686,7 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="AdjustableTextField" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="NumericControlField" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -694,7 +697,7 @@
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="21" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pey-X8-GiU" userLabel="Delegate Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="131"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-fM-r5M" userLabel="Delegate Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-fM-r5M" userLabel="Delegate Label">
                                                 <rect key="frame" x="68.5" y="108" width="63" height="23"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Delegate" id="F27-mY-U3w">
                                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
@@ -702,7 +705,7 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ls-bF-dL3">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ls-bF-dL3">
                                                 <rect key="frame" x="87.5" y="43" width="25" height="44"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" placeholderString="" id="QlR-bd-YTl">
                                                     <font key="font" size="36" name="HelveticaNeue-Thin"/>
@@ -710,11 +713,8 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qK-qn-lhr" customClass="AdjustableTextField" customModule="AdjustableTextField" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qK-qn-lhr" customClass="NumericControlField" customModule="NumericControlField" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="7CS-58-Y8d"/>
-                                                </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Click and Drag to change value" drawsBackground="YES" id="Zwz-8k-Q3x">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -747,7 +747,7 @@
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="21" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9t5-Dx-GZA" userLabel="Closure Stack View">
                                         <rect key="frame" x="232" y="0.0" width="200" height="131"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-uD-QDH" userLabel="Closure Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-uD-QDH" userLabel="Closure Label">
                                                 <rect key="frame" x="72" y="108" width="56" height="23"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Closure" id="Rn4-Df-eVy">
                                                     <font key="font" size="16" name="HelveticaNeue-Thin"/>
@@ -755,7 +755,7 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC3-GB-gQo">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nC3-GB-gQo">
                                                 <rect key="frame" x="87.5" y="43" width="25" height="44"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" placeholderString="" id="lhV-cf-693">
                                                     <font key="font" size="36" name="HelveticaNeue-Thin"/>
@@ -763,11 +763,8 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONR-3J-DGD" customClass="AdjustableTextField" customModule="AdjustableTextField" customModuleProvider="target">
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ONR-3J-DGD" customClass="NumericControlField" customModule="NumericControlField" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="iMJ-4w-d7u"/>
-                                                </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Click and Drag to change value" drawsBackground="YES" id="Nxf-oh-DjD">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -814,9 +811,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="closureAdjustableTextField" destination="ONR-3J-DGD" id="Xon-Nw-l6G"/>
+                        <outlet property="closureNumericControlField" destination="ONR-3J-DGD" id="ZfD-SI-69R"/>
                         <outlet property="closureValueLabel" destination="nC3-GB-gQo" id="Thr-UQ-55r"/>
-                        <outlet property="delegateAdjustableTextField" destination="8qK-qn-lhr" id="jY5-9Z-py7"/>
+                        <outlet property="delegateNumericControlField" destination="8qK-qn-lhr" id="Y3f-Y6-KM6"/>
                         <outlet property="delegateValueLabel" destination="6ls-bF-dL3" id="eWC-ad-Eor"/>
                     </connections>
                 </viewController>

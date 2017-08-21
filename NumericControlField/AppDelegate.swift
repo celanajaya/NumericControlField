@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AdjustableTextField
+//  NumericControlField
 //
 //  Created by Peter Steele on 7/26/17.
 //  Copyright © 2017 peteyP. All rights reserved.
