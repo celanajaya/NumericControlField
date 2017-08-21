@@ -1,4 +1,4 @@
-# AdjustableTextField
+# NumericControlField
 An NSTextfield subclass that supports click and drag to change numeric values. 
 Developers can also respond to value changes by either implementing a delegate method or via closure.
 
