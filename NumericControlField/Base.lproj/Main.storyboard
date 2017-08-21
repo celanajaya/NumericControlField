@@ -692,7 +692,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="32" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KEh-sC-1J0">
-                                <rect key="frame" x="24" y="69" width="432" height="131"/>
+                                <rect key="frame" x="23.5" y="69" width="432" height="131"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="21" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pey-X8-GiU" userLabel="Delegate Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="131"/>
@@ -715,6 +715,9 @@
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qK-qn-lhr" customClass="NumericControlField" customModule="NumericControlField" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="GsS-oh-J0g"/>
+                                                </constraints>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Click and Drag to change value" drawsBackground="YES" id="Zwz-8k-Q3x">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -765,7 +768,10 @@
                                             </textField>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ONR-3J-DGD" customClass="NumericControlField" customModule="NumericControlField" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="22"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Click and Drag to change value" drawsBackground="YES" id="Nxf-oh-DjD">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="JOd-GR-Mlu"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Click and Drag to change value" drawsBackground="YES" id="Nxf-oh-DjD">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
